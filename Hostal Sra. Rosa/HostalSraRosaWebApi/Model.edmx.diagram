@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="382c7348201b4feba20a47f7725fb033" Name="Diagram1">
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.DETALLE_COMPRA" Width="1.5" PointX="12.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.DETALLE_FACTURA" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.DETALLE_PEDIDO" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.DETALLE_RECEPCION" Width="1.5" PointX="11.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.EMPLEADO" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.EMPRESA" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.FACTURA" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.HABITACION" Width="1.5" PointX="10.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.HUESPED" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.ORDEN_COMPRA" Width="1.5" PointX="6" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.ORDEN_PEDIDO" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.PRODUCTO" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.PROVEEDOR" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.RECEPCION_PRODUCTO" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.RUBRO" Width="1.5" PointX="1.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.TIPO_HABITACION" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.TIPO_MENU" Width="1.5" PointX="6" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostalSraRosaApiWebModel.USUARIO" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_COMPRA_HABITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_COMPRA_HUESPED_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_COMPRA_ORDEN_COMPRA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_FACTURA_FACTURA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_FACTURA_TIPO_MENU_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.HABITACION_DETALLE_FACTURA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_PEDIDO_ORDEN_PEDIDO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_PEDIDO_PRODUCTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_R_PRODUCTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.DETALLE_REC_REC_PRODUCTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.ORDEN_PEDIDO_EMPLEADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.RECEPCION_PRODUCTO_EMPLEADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.FACTURA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.HUESPED_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.ORDEN_COMPRA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.HABITACION_TIPO_HABITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.ORDEN_PEDIDO_PROVEEDOR_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.PROVEEDOR_RUBRO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="HostalSraRosaApiWebModel.RECEPCION_PRODUCTO_PRODUCTO_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

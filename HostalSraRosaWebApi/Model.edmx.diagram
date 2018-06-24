@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5e0df8bd28064819b67b0ac91e246f2c" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.DETALLE_COMPRA" Width="1.875" PointX="9.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_FACTURA" Width="2.375" PointX="3.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_PEDIDO" Width="2.125" PointX="10" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_RECEPCION" Width="2.125" PointX="10" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPLEADO" Width="1.875" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPRESA" Width="1.875" PointX="0.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FACTURA" Width="2" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HABITACION" Width="2" PointX="7.375" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HUESPED" Width="1.875" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ORDEN_COMPRA" Width="2.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PRODUCTO" Width="2" PointX="7.375" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROVEEDOR" Width="1.875" PointX="14" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RUBRO" Width="1.5" PointX="11.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_HABITACION" Width="2.25" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_MENU" Width="1.875" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO" Width="2.25" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.DETALLE_COMPRA_HABITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_COMPRA_HUESPED_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_FACTURA_FACTURA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_FACTURA_TIPO_MENU_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.HABITACION_DETALLE_FACTURA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_PEDIDO_PRODUCTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_R_PRODUCTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FACTURA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.HUESPED_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ORDEN_COMPRA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.HABITACION_TIPO_HABITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PROVEEDOR_RUBRO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_COMPRA_ORDEN_COMPRA_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

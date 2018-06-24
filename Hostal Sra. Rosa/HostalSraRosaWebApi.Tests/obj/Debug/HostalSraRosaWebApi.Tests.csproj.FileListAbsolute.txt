@@ -1,0 +1,1 @@
+c:\users\blacklestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi.Tests\obj\Debug\HostalSraRosaWebApi.Tests.csprojResolveAssemblyReference.cache

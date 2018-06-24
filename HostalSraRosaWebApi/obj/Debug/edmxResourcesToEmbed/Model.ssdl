@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DETALLE_COMPRA">
+    <Key>
+      <PropertyRef Name="DETALLE_COMPRA_ID" />
+    </Key>
+    <Property Name="DETALLE_COMPRA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ORDEN_COMPRA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="HABITACION_NRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="HUESPED_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_FACTURA">
+    <Key>
+      <PropertyRef Name="DETALLE_FACTURA_ID" />
+    </Key>
+    <Property Name="DETALLE_FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_FACTURA_PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_FACTURA_ESTADIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_MENU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_PEDIDO">
+    <Key>
+      <PropertyRef Name="DETALLE_PEDIDO_ID" />
+    </Key>
+    <Property Name="DETALLE_PEDIDO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_PEDIDO_CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_PEDIDO_PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ORDEN_PEDIDO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_RECEPCION">
+    <Key>
+      <PropertyRef Name="DETALLE_RECEPCION_ID" />
+    </Key>
+    <Property Name="DETALLE_RECEPCION_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_R_CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_R_PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RECEPCION_PRODUCTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="EMPLEADO_RUT" />
+    </Key>
+    <Property Name="EMPLEADO_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMPLEADO_RUT_DV" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="EMPLEADO_NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="EMPLEADO_DIRECCION" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="EMPLEADO_TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPRESA">
+    <Key>
+      <PropertyRef Name="EMPRESA_RUT" />
+    </Key>
+    <Property Name="EMPRESA_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMPRESA_RUT_DV" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="EMPRESA_NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="EMPRESA_DIRECCION" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="EMPRESA_EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURA">
+    <Key>
+      <PropertyRef Name="FACTURA_ID" />
+    </Key>
+    <Property Name="FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FACTURA_VALOR_TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FACTURA_FECHA" Type="date" Nullable="false" />
+    <Property Name="EMPRESA_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HABITACION">
+    <Key>
+      <PropertyRef Name="HABITACION_NRO" />
+    </Key>
+    <Property Name="HABITACION_NRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="HABITACION_DISPONIBLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DETALLE_FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_HABITACION_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HUESPED">
+    <Key>
+      <PropertyRef Name="HUESPED_RUT" />
+    </Key>
+    <Property Name="HUESPED_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="HUESPED_RUT_DV" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="HUESPED_NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="HUESPED_EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="EMPRESA_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDEN_COMPRA">
+    <Key>
+      <PropertyRef Name="ORDEN_COMPRA_ID" />
+    </Key>
+    <Property Name="ORDEN_COMPRA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ORDEN_COMPRA_FECHA_INICIO" Type="date" Nullable="false" />
+    <Property Name="ORDEN_COMPRA_FECHA_TERMINO" Type="date" Nullable="false" />
+    <Property Name="EMPRESA_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTO">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRODUCTO_CODIGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRODUCTO_NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="PRODUCTO_DESCRIPCION" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="PRODUCTO_STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="PROVEEDOR_ID" />
+    </Key>
+    <Property Name="PROVEEDOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PROVEEDOR_NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="PROVEEDOR_TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PROVEEDOR_EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="RUBRO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RUBRO">
+    <Key>
+      <PropertyRef Name="RUBRO_ID" />
+    </Key>
+    <Property Name="RUBRO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUBRO_NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_HABITACION">
+    <Key>
+      <PropertyRef Name="TIPO_HABITACION_ID" />
+    </Key>
+    <Property Name="TIPO_HABITACION_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_HABITACION_NOMBRE" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="TIPO_HABITACION_VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_MENU">
+    <Key>
+      <PropertyRef Name="TIPO_MENU_ID" />
+    </Key>
+    <Property Name="TIPO_MENU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_MENU_NOMBRE" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="TIPO_MENU_PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="USUARIO_NOMBRE_USUARIO" />
+    </Key>
+    <Property Name="USUARIO_NOMBRE_USUARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="USUARIO_CLAVE" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="USUARIO_ROL" Type="varchar2" MaxLength="20" />
+    <Property Name="USUARIO_NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="USUARIO_APELLIDO_P" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="USUARIO_APELLIDO_M" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <Association Name="DETALLE_COMPRA_HABITACION_FK">
+    <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="1" />
+    <End Role="DETALLE_COMPRA" Type="Self.DETALLE_COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HABITACION">
+        <PropertyRef Name="HABITACION_NRO" />
+      </Principal>
+      <Dependent Role="DETALLE_COMPRA">
+        <PropertyRef Name="HABITACION_NRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_COMPRA_HUESPED_FK">
+    <End Role="HUESPED" Type="Self.HUESPED" Multiplicity="1" />
+    <End Role="DETALLE_COMPRA" Type="Self.DETALLE_COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HUESPED">
+        <PropertyRef Name="HUESPED_RUT" />
+      </Principal>
+      <Dependent Role="DETALLE_COMPRA">
+        <PropertyRef Name="HUESPED_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_COMPRA_ORDEN_COMPRA_FK">
+    <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="1" />
+    <End Role="DETALLE_COMPRA" Type="Self.DETALLE_COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDEN_COMPRA">
+        <PropertyRef Name="ORDEN_COMPRA_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_COMPRA">
+        <PropertyRef Name="ORDEN_COMPRA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_FACTURA_FACTURA_FK">
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1" />
+    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURA">
+        <PropertyRef Name="FACTURA_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_FACTURA">
+        <PropertyRef Name="DETALLE_FACTURA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_FACTURA_TIPO_MENU_FK">
+    <End Role="TIPO_MENU" Type="Self.TIPO_MENU" Multiplicity="1" />
+    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_MENU">
+        <PropertyRef Name="TIPO_MENU_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_FACTURA">
+        <PropertyRef Name="TIPO_MENU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_PEDIDO_PRODUCTO_FK">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="PRODUCTO_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_PEDIDO">
+        <PropertyRef Name="PRODUCTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_R_PRODUCTO_FK">
+    <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+    <End Role="DETALLE_RECEPCION" Type="Self.DETALLE_RECEPCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="PRODUCTO_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RECEPCION">
+        <PropertyRef Name="PRODUCTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FACTURA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMPRESA_RUT" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="EMPRESA_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HABITACION_DETALLE_FACTURA_FK">
+    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="1" />
+    <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DETALLE_FACTURA">
+        <PropertyRef Name="DETALLE_FACTURA_ID" />
+      </Principal>
+      <Dependent Role="HABITACION">
+        <PropertyRef Name="HABITACION_NRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HABITACION_TIPO_HABITACION_FK">
+    <End Role="TIPO_HABITACION" Type="Self.TIPO_HABITACION" Multiplicity="1" />
+    <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_HABITACION">
+        <PropertyRef Name="TIPO_HABITACION_ID" />
+      </Principal>
+      <Dependent Role="HABITACION">
+        <PropertyRef Name="TIPO_HABITACION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HUESPED_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="HUESPED" Type="Self.HUESPED" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMPRESA_RUT" />
+      </Principal>
+      <Dependent Role="HUESPED">
+        <PropertyRef Name="EMPRESA_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDEN_COMPRA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="ORDEN_COMPRA" Type="Self.ORDEN_COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMPRESA_RUT" />
+      </Principal>
+      <Dependent Role="ORDEN_COMPRA">
+        <PropertyRef Name="EMPRESA_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROVEEDOR_RUBRO_FK">
+    <End Role="RUBRO" Type="Self.RUBRO" Multiplicity="1" />
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUBRO">
+        <PropertyRef Name="RUBRO_ID" />
+      </Principal>
+      <Dependent Role="PROVEEDOR">
+        <PropertyRef Name="RUBRO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="DETALLE_COMPRA" EntityType="Self.DETALLE_COMPRA" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="DETALLE_FACTURA" EntityType="Self.DETALLE_FACTURA" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="DETALLE_RECEPCION" EntityType="Self.DETALLE_RECEPCION" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="HABITACION" EntityType="Self.HABITACION" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="HUESPED" EntityType="Self.HUESPED" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="ORDEN_COMPRA" EntityType="Self.ORDEN_COMPRA" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="RUBRO" EntityType="Self.RUBRO" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="TIPO_MENU" EntityType="Self.TIPO_MENU" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="HOSTAL" store:Type="Tables" />
+    <AssociationSet Name="DETALLE_COMPRA_HABITACION_FK" Association="Self.DETALLE_COMPRA_HABITACION_FK">
+      <End Role="HABITACION" EntitySet="HABITACION" />
+      <End Role="DETALLE_COMPRA" EntitySet="DETALLE_COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_COMPRA_HUESPED_FK" Association="Self.DETALLE_COMPRA_HUESPED_FK">
+      <End Role="HUESPED" EntitySet="HUESPED" />
+      <End Role="DETALLE_COMPRA" EntitySet="DETALLE_COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_COMPRA_ORDEN_COMPRA_FK" Association="Self.DETALLE_COMPRA_ORDEN_COMPRA_FK">
+      <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+      <End Role="DETALLE_COMPRA" EntitySet="DETALLE_COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_FACTURA_FACTURA_FK" Association="Self.DETALLE_FACTURA_FACTURA_FK">
+      <End Role="FACTURA" EntitySet="FACTURA" />
+      <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_FACTURA_TIPO_MENU_FK" Association="Self.DETALLE_FACTURA_TIPO_MENU_FK">
+      <End Role="TIPO_MENU" EntitySet="TIPO_MENU" />
+      <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_PEDIDO_PRODUCTO_FK" Association="Self.DETALLE_PEDIDO_PRODUCTO_FK">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_R_PRODUCTO_FK" Association="Self.DETALLE_R_PRODUCTO_FK">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="DETALLE_RECEPCION" EntitySet="DETALLE_RECEPCION" />
+    </AssociationSet>
+    <AssociationSet Name="FACTURA_EMPRESA_FK" Association="Self.FACTURA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="HABITACION_DETALLE_FACTURA_FK" Association="Self.HABITACION_DETALLE_FACTURA_FK">
+      <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+      <End Role="HABITACION" EntitySet="HABITACION" />
+    </AssociationSet>
+    <AssociationSet Name="HABITACION_TIPO_HABITACION_FK" Association="Self.HABITACION_TIPO_HABITACION_FK">
+      <End Role="TIPO_HABITACION" EntitySet="TIPO_HABITACION" />
+      <End Role="HABITACION" EntitySet="HABITACION" />
+    </AssociationSet>
+    <AssociationSet Name="HUESPED_EMPRESA_FK" Association="Self.HUESPED_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="HUESPED" EntitySet="HUESPED" />
+    </AssociationSet>
+    <AssociationSet Name="ORDEN_COMPRA_EMPRESA_FK" Association="Self.ORDEN_COMPRA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="PROVEEDOR_RUBRO_FK" Association="Self.PROVEEDOR_RUBRO_FK">
+      <End Role="RUBRO" EntitySet="RUBRO" />
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
