@@ -262,6 +262,9 @@
     <Compile Include="Controllers\FACTURAsController.cs" />
     <Compile Include="Controllers\HABITACIONsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HUESPEDsController.cs" />
+    <Compile Include="Controllers\PRODUCTOesController.cs" />
+    <Compile Include="Controllers\PROVEEDORsController.cs" />
     <Compile Include="Controllers\RUBROesController.cs" />
     <Compile Include="Controllers\USUARIOsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
