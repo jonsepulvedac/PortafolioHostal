@@ -19,9 +19,11 @@ namespace HostalSraRosaWebApi
         public decimal DETALLE_FACTURA_ESTADIA { get; set; }
         public decimal FACTURA_ID { get; set; }
         public decimal TIPO_MENU_ID { get; set; }
+        public decimal HABITACION_NRO { get; set; }
     
         public virtual FACTURA FACTURA { get; set; }
         public virtual TIPO_MENU TIPO_MENU { get; set; }
+        public virtual FACTURA FACTURA1 { get; set; }
         public virtual HABITACION HABITACION { get; set; }
     }
 }

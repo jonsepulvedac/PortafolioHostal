@@ -14,6 +14,12 @@ namespace HostalSraRosaWebApi
     
     public partial class FACTURA
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FACTURA()
+        {
+            this.DETALLE_FACTURA1 = new HashSet<DETALLE_FACTURA>();
+        }
+    
         public decimal FACTURA_ID { get; set; }
         public decimal FACTURA_VALOR_TOTAL { get; set; }
         public System.DateTime FACTURA_FECHA { get; set; }
@@ -21,5 +27,7 @@ namespace HostalSraRosaWebApi
     
         public virtual DETALLE_FACTURA DETALLE_FACTURA { get; set; }
         public virtual EMPRESA EMPRESA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETALLE_FACTURA> DETALLE_FACTURA1 { get; set; }
     }
 }

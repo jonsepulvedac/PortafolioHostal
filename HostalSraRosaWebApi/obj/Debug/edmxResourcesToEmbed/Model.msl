@@ -14,6 +14,7 @@
     <EntitySetMapping Name="DETALLE_FACTURA">
       <EntityTypeMapping TypeName="Model.DETALLE_FACTURA">
         <MappingFragment StoreEntitySet="DETALLE_FACTURA">
+          <ScalarProperty Name="HABITACION_NRO" ColumnName="HABITACION_NRO" />
           <ScalarProperty Name="DETALLE_FACTURA_ID" ColumnName="DETALLE_FACTURA_ID" />
           <ScalarProperty Name="DETALLE_FACTURA_PRECIO" ColumnName="DETALLE_FACTURA_PRECIO" />
           <ScalarProperty Name="DETALLE_FACTURA_ESTADIA" ColumnName="DETALLE_FACTURA_ESTADIA" />
@@ -73,16 +74,6 @@
           <ScalarProperty Name="FACTURA_VALOR_TOTAL" ColumnName="FACTURA_VALOR_TOTAL" />
           <ScalarProperty Name="FACTURA_FECHA" ColumnName="FACTURA_FECHA" />
           <ScalarProperty Name="EMPRESA_RUT" ColumnName="EMPRESA_RUT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HABITACION">
-      <EntityTypeMapping TypeName="Model.HABITACION">
-        <MappingFragment StoreEntitySet="HABITACION">
-          <ScalarProperty Name="HABITACION_NRO" ColumnName="HABITACION_NRO" />
-          <ScalarProperty Name="HABITACION_DISPONIBLE" ColumnName="HABITACION_DISPONIBLE" />
-          <ScalarProperty Name="DETALLE_FACTURA_ID" ColumnName="DETALLE_FACTURA_ID" />
-          <ScalarProperty Name="TIPO_HABITACION_ID" ColumnName="TIPO_HABITACION_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -164,6 +155,37 @@
           <ScalarProperty Name="USUARIO_NOMBRE" ColumnName="USUARIO_NOMBRE" />
           <ScalarProperty Name="USUARIO_APELLIDO_P" ColumnName="USUARIO_APELLIDO_P" />
           <ScalarProperty Name="USUARIO_APELLIDO_M" ColumnName="USUARIO_APELLIDO_M" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HABITACION">
+      <EntityTypeMapping TypeName="Model.HABITACION">
+        <MappingFragment StoreEntitySet="HABITACION">
+          <ScalarProperty Name="TIPO_HABITACION_ID" ColumnName="TIPO_HABITACION_ID" />
+          <ScalarProperty Name="HABITACION_DISPONIBLE" ColumnName="HABITACION_DISPONIBLE" />
+          <ScalarProperty Name="HABITACION_NRO" ColumnName="HABITACION_NRO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDEN_PEDIDO">
+      <EntityTypeMapping TypeName="Model.ORDEN_PEDIDO">
+        <MappingFragment StoreEntitySet="ORDEN_PEDIDO">
+          <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+          <ScalarProperty Name="EMPLEADO_RUT" ColumnName="EMPLEADO_RUT" />
+          <ScalarProperty Name="ORDEN_PEDIDO_FECHA" ColumnName="ORDEN_PEDIDO_FECHA" />
+          <ScalarProperty Name="ORDEN_PEDIDO_PRECIO_TOTAL" ColumnName="ORDEN_PEDIDO_PRECIO_TOTAL" />
+          <ScalarProperty Name="ORDEN_PEDIDO_ID" ColumnName="ORDEN_PEDIDO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECEPCION_PRODUCTO">
+      <EntityTypeMapping TypeName="Model.RECEPCION_PRODUCTO">
+        <MappingFragment StoreEntitySet="RECEPCION_PRODUCTO">
+          <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+          <ScalarProperty Name="EMPLEADO_RUT" ColumnName="EMPLEADO_RUT" />
+          <ScalarProperty Name="RECEPCION_FECHA" ColumnName="RECEPCION_FECHA" />
+          <ScalarProperty Name="RECEPCION_PRECIO_TOTAL" ColumnName="RECEPCION_PRECIO_TOTAL" />
+          <ScalarProperty Name="RECEPCION_PRODUCTO_ID" ColumnName="RECEPCION_PRODUCTO_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

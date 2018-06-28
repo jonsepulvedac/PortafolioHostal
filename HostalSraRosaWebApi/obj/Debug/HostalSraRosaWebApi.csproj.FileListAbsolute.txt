@@ -125,6 +125,6 @@ C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\Host
 C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\bin\es\System.Web.Http.Owin.resources.dll
+C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\obj\Debug\HostalSraRosaWebApi.csprojResolveAssemblyReference.cache
 C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\obj\Debug\HostalSraRosaWebApi.dll
 C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\obj\Debug\HostalSraRosaWebApi.pdb
-C:\Users\BlackLestat\documents\visual studio 2015\Projects\Hostal Sra. Rosa\HostalSraRosaWebApi\obj\Debug\HostalSraRosaWebApi.csprojResolveAssemblyReference.cache

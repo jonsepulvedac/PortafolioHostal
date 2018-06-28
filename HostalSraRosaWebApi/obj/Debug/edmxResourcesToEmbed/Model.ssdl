@@ -16,6 +16,7 @@
     <Property Name="DETALLE_FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DETALLE_FACTURA_PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DETALLE_FACTURA_ESTADIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="HABITACION_NRO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="TIPO_MENU_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
@@ -74,7 +75,6 @@
     </Key>
     <Property Name="HABITACION_NRO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="HABITACION_DISPONIBLE" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="DETALLE_FACTURA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="TIPO_HABITACION_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="HUESPED">
@@ -96,6 +96,16 @@
     <Property Name="ORDEN_COMPRA_FECHA_TERMINO" Type="date" Nullable="false" />
     <Property Name="EMPRESA_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
+  <EntityType Name="ORDEN_PEDIDO">
+    <Key>
+      <PropertyRef Name="ORDEN_PEDIDO_ID" />
+    </Key>
+    <Property Name="ORDEN_PEDIDO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ORDEN_PEDIDO_PRECIO_TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ORDEN_PEDIDO_FECHA" Type="date" Nullable="false" />
+    <Property Name="EMPLEADO_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PROVEEDOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
   <EntityType Name="PRODUCTO">
     <Key>
       <PropertyRef Name="PRODUCTO_ID" />
@@ -115,6 +125,16 @@
     <Property Name="PROVEEDOR_TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="PROVEEDOR_EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
     <Property Name="RUBRO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RECEPCION_PRODUCTO">
+    <Key>
+      <PropertyRef Name="RECEPCION_PRODUCTO_ID" />
+    </Key>
+    <Property Name="RECEPCION_PRODUCTO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RECEPCION_PRECIO_TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RECEPCION_FECHA" Type="date" Nullable="false" />
+    <Property Name="EMPLEADO_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PROVEEDOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="RUBRO">
     <Key>
@@ -150,18 +170,6 @@
     <Property Name="USUARIO_APELLIDO_P" Type="varchar2" MaxLength="50" Nullable="false" />
     <Property Name="USUARIO_APELLIDO_M" Type="varchar2" MaxLength="50" />
   </EntityType>
-  <Association Name="DETALLE_COMPRA_HABITACION_FK">
-    <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="1" />
-    <End Role="DETALLE_COMPRA" Type="Self.DETALLE_COMPRA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HABITACION">
-        <PropertyRef Name="HABITACION_NRO" />
-      </Principal>
-      <Dependent Role="DETALLE_COMPRA">
-        <PropertyRef Name="HABITACION_NRO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="DETALLE_COMPRA_HUESPED_FK">
     <End Role="HUESPED" Type="Self.HUESPED" Multiplicity="1" />
     <End Role="DETALLE_COMPRA" Type="Self.DETALLE_COMPRA" Multiplicity="*" />
@@ -188,13 +196,25 @@
   </Association>
   <Association Name="DETALLE_FACTURA_FACTURA_FK">
     <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1" />
-    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="0..1" />
+    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FACTURA">
         <PropertyRef Name="FACTURA_ID" />
       </Principal>
       <Dependent Role="DETALLE_FACTURA">
-        <PropertyRef Name="DETALLE_FACTURA_ID" />
+        <PropertyRef Name="FACTURA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_FACTURA_HABITACION_NRO">
+    <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="1" />
+    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HABITACION">
+        <PropertyRef Name="HABITACION_NRO" />
+      </Principal>
+      <Dependent Role="DETALLE_FACTURA">
+        <PropertyRef Name="HABITACION_NRO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -207,6 +227,18 @@
       </Principal>
       <Dependent Role="DETALLE_FACTURA">
         <PropertyRef Name="TIPO_MENU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_PEDIDO_ORDEN_PEDIDO_FK">
+    <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="1" />
+    <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDEN_PEDIDO">
+        <PropertyRef Name="ORDEN_PEDIDO_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_PEDIDO">
+        <PropertyRef Name="ORDEN_PEDIDO_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -234,6 +266,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="DETALLE_REC_REC_PRODUCTO_FK">
+    <End Role="RECEPCION_PRODUCTO" Type="Self.RECEPCION_PRODUCTO" Multiplicity="1" />
+    <End Role="DETALLE_RECEPCION" Type="Self.DETALLE_RECEPCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECEPCION_PRODUCTO">
+        <PropertyRef Name="RECEPCION_PRODUCTO_ID" />
+      </Principal>
+      <Dependent Role="DETALLE_RECEPCION">
+        <PropertyRef Name="RECEPCION_PRODUCTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FACTURA_EMPRESA_FK">
     <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
     <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
@@ -243,18 +287,6 @@
       </Principal>
       <Dependent Role="FACTURA">
         <PropertyRef Name="EMPRESA_RUT" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="HABITACION_DETALLE_FACTURA_FK">
-    <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="1" />
-    <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DETALLE_FACTURA">
-        <PropertyRef Name="DETALLE_FACTURA_ID" />
-      </Principal>
-      <Dependent Role="HABITACION">
-        <PropertyRef Name="HABITACION_NRO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -294,6 +326,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ORDEN_PEDIDO_EMPLEADO_FK">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="EMPLEADO_RUT" />
+      </Principal>
+      <Dependent Role="ORDEN_PEDIDO">
+        <PropertyRef Name="EMPLEADO_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDEN_PEDIDO_PROVEEDOR_FK">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+    <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="PROVEEDOR_ID" />
+      </Principal>
+      <Dependent Role="ORDEN_PEDIDO">
+        <PropertyRef Name="PROVEEDOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="PROVEEDOR_RUBRO_FK">
     <End Role="RUBRO" Type="Self.RUBRO" Multiplicity="1" />
     <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
@@ -303,6 +359,30 @@
       </Principal>
       <Dependent Role="PROVEEDOR">
         <PropertyRef Name="RUBRO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RECEPCION_PRODUCTO_EMPLEADO_FK">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="RECEPCION_PRODUCTO" Type="Self.RECEPCION_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="EMPLEADO_RUT" />
+      </Principal>
+      <Dependent Role="RECEPCION_PRODUCTO">
+        <PropertyRef Name="EMPLEADO_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RECEPCION_PRODUCTO_PRODUCTO_FK">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+    <End Role="RECEPCION_PRODUCTO" Type="Self.RECEPCION_PRODUCTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="PROVEEDOR_ID" />
+      </Principal>
+      <Dependent Role="RECEPCION_PRODUCTO">
+        <PropertyRef Name="PROVEEDOR_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -317,16 +397,14 @@
     <EntitySet Name="HABITACION" EntityType="Self.HABITACION" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="HUESPED" EntityType="Self.HUESPED" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="ORDEN_COMPRA" EntityType="Self.ORDEN_COMPRA" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="ORDEN_PEDIDO" EntityType="Self.ORDEN_PEDIDO" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="HOSTAL" store:Type="Tables" />
+    <EntitySet Name="RECEPCION_PRODUCTO" EntityType="Self.RECEPCION_PRODUCTO" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="RUBRO" EntityType="Self.RUBRO" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="TIPO_MENU" EntityType="Self.TIPO_MENU" Schema="HOSTAL" store:Type="Tables" />
     <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="HOSTAL" store:Type="Tables" />
-    <AssociationSet Name="DETALLE_COMPRA_HABITACION_FK" Association="Self.DETALLE_COMPRA_HABITACION_FK">
-      <End Role="HABITACION" EntitySet="HABITACION" />
-      <End Role="DETALLE_COMPRA" EntitySet="DETALLE_COMPRA" />
-    </AssociationSet>
     <AssociationSet Name="DETALLE_COMPRA_HUESPED_FK" Association="Self.DETALLE_COMPRA_HUESPED_FK">
       <End Role="HUESPED" EntitySet="HUESPED" />
       <End Role="DETALLE_COMPRA" EntitySet="DETALLE_COMPRA" />
@@ -339,9 +417,17 @@
       <End Role="FACTURA" EntitySet="FACTURA" />
       <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
     </AssociationSet>
+    <AssociationSet Name="DETALLE_FACTURA_HABITACION_NRO" Association="Self.DETALLE_FACTURA_HABITACION_NRO">
+      <End Role="HABITACION" EntitySet="HABITACION" />
+      <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+    </AssociationSet>
     <AssociationSet Name="DETALLE_FACTURA_TIPO_MENU_FK" Association="Self.DETALLE_FACTURA_TIPO_MENU_FK">
       <End Role="TIPO_MENU" EntitySet="TIPO_MENU" />
       <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_PEDIDO_ORDEN_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_ORDEN_PEDIDO_FK">
+      <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+      <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
     </AssociationSet>
     <AssociationSet Name="DETALLE_PEDIDO_PRODUCTO_FK" Association="Self.DETALLE_PEDIDO_PRODUCTO_FK">
       <End Role="PRODUCTO" EntitySet="PRODUCTO" />
@@ -351,13 +437,13 @@
       <End Role="PRODUCTO" EntitySet="PRODUCTO" />
       <End Role="DETALLE_RECEPCION" EntitySet="DETALLE_RECEPCION" />
     </AssociationSet>
+    <AssociationSet Name="DETALLE_REC_REC_PRODUCTO_FK" Association="Self.DETALLE_REC_REC_PRODUCTO_FK">
+      <End Role="RECEPCION_PRODUCTO" EntitySet="RECEPCION_PRODUCTO" />
+      <End Role="DETALLE_RECEPCION" EntitySet="DETALLE_RECEPCION" />
+    </AssociationSet>
     <AssociationSet Name="FACTURA_EMPRESA_FK" Association="Self.FACTURA_EMPRESA_FK">
       <End Role="EMPRESA" EntitySet="EMPRESA" />
       <End Role="FACTURA" EntitySet="FACTURA" />
-    </AssociationSet>
-    <AssociationSet Name="HABITACION_DETALLE_FACTURA_FK" Association="Self.HABITACION_DETALLE_FACTURA_FK">
-      <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
-      <End Role="HABITACION" EntitySet="HABITACION" />
     </AssociationSet>
     <AssociationSet Name="HABITACION_TIPO_HABITACION_FK" Association="Self.HABITACION_TIPO_HABITACION_FK">
       <End Role="TIPO_HABITACION" EntitySet="TIPO_HABITACION" />
@@ -371,9 +457,25 @@
       <End Role="EMPRESA" EntitySet="EMPRESA" />
       <End Role="ORDEN_COMPRA" EntitySet="ORDEN_COMPRA" />
     </AssociationSet>
+    <AssociationSet Name="ORDEN_PEDIDO_EMPLEADO_FK" Association="Self.ORDEN_PEDIDO_EMPLEADO_FK">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="ORDEN_PEDIDO_PROVEEDOR_FK" Association="Self.ORDEN_PEDIDO_PROVEEDOR_FK">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+    </AssociationSet>
     <AssociationSet Name="PROVEEDOR_RUBRO_FK" Association="Self.PROVEEDOR_RUBRO_FK">
       <End Role="RUBRO" EntitySet="RUBRO" />
       <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="RECEPCION_PRODUCTO_EMPLEADO_FK" Association="Self.RECEPCION_PRODUCTO_EMPLEADO_FK">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="RECEPCION_PRODUCTO" EntitySet="RECEPCION_PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="RECEPCION_PRODUCTO_PRODUCTO_FK" Association="Self.RECEPCION_PRODUCTO_PRODUCTO_FK">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="RECEPCION_PRODUCTO" EntitySet="RECEPCION_PRODUCTO" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

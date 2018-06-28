@@ -12,25 +12,23 @@ namespace HostalSraRosaWebApi
     using System;
     using System.Collections.Generic;
     
-    public partial class PROVEEDOR
+    public partial class ORDEN_PEDIDO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PROVEEDOR()
+        public ORDEN_PEDIDO()
         {
-            this.ORDEN_PEDIDO = new HashSet<ORDEN_PEDIDO>();
-            this.RECEPCION_PRODUCTO = new HashSet<RECEPCION_PRODUCTO>();
+            this.DETALLE_PEDIDO = new HashSet<DETALLE_PEDIDO>();
         }
     
+        public decimal ORDEN_PEDIDO_ID { get; set; }
+        public decimal ORDEN_PEDIDO_PRECIO_TOTAL { get; set; }
+        public System.DateTime ORDEN_PEDIDO_FECHA { get; set; }
+        public decimal EMPLEADO_RUT { get; set; }
         public decimal PROVEEDOR_ID { get; set; }
-        public string PROVEEDOR_NOMBRE { get; set; }
-        public decimal PROVEEDOR_TELEFONO { get; set; }
-        public string PROVEEDOR_EMAIL { get; set; }
-        public decimal RUBRO_ID { get; set; }
     
-        public virtual RUBRO RUBRO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDEN_PEDIDO> ORDEN_PEDIDO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RECEPCION_PRODUCTO> RECEPCION_PRODUCTO { get; set; }
+        public virtual ICollection<DETALLE_PEDIDO> DETALLE_PEDIDO { get; set; }
+        public virtual EMPLEADO EMPLEADO { get; set; }
+        public virtual PROVEEDOR PROVEEDOR { get; set; }
     }
 }

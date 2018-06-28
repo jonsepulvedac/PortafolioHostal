@@ -21,5 +21,6 @@ namespace HostalSraRosaWebApi
         public decimal PRODUCTO_ID { get; set; }
     
         public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual ORDEN_PEDIDO ORDEN_PEDIDO { get; set; }
     }
 }

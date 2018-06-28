@@ -19,7 +19,6 @@ namespace HostalSraRosaWebApi
         public decimal HABITACION_NRO { get; set; }
         public decimal HUESPED_RUT { get; set; }
     
-        public virtual HABITACION HABITACION { get; set; }
         public virtual HUESPED HUESPED { get; set; }
         public virtual ORDEN_COMPRA ORDEN_COMPRA { get; set; }
     }

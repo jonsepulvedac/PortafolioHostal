@@ -32,7 +32,6 @@ namespace HostalSraRosaWebApi
         public virtual DbSet<EMPLEADO> EMPLEADO { get; set; }
         public virtual DbSet<EMPRESA> EMPRESA { get; set; }
         public virtual DbSet<FACTURA> FACTURA { get; set; }
-        public virtual DbSet<HABITACION> HABITACION { get; set; }
         public virtual DbSet<HUESPED> HUESPED { get; set; }
         public virtual DbSet<ORDEN_COMPRA> ORDEN_COMPRA { get; set; }
         public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }
@@ -41,5 +40,8 @@ namespace HostalSraRosaWebApi
         public virtual DbSet<TIPO_HABITACION> TIPO_HABITACION { get; set; }
         public virtual DbSet<TIPO_MENU> TIPO_MENU { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<HABITACION> HABITACION { get; set; }
+        public virtual DbSet<ORDEN_PEDIDO> ORDEN_PEDIDO { get; set; }
+        public virtual DbSet<RECEPCION_PRODUCTO> RECEPCION_PRODUCTO { get; set; }
     }
 }

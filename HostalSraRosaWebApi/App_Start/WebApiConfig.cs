@@ -14,6 +14,17 @@ namespace HostalSraRosaWebApi
     {
         public static void Register(HttpConfiguration config)
         {
+
+            // Configuración y servicios de Web API
+            // Configure Web API para usar solo la autenticación de token de portador.
+            //config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
+            //**************************************************
+            //var urlPermitidas = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(urlPermitidas);
+            //**************************************************
+
             // Configuración de rutas y servicios de API
             config.MapHttpAttributeRoutes();
 

@@ -282,6 +282,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HUESPEDsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ORDEN_COMPRAController.cs" />
+    <Compile Include="Controllers\ORDEN_PEDIDOController.cs" />
     <Compile Include="Controllers\PRODUCTOesController.cs" />
     <Compile Include="Controllers\PROVEEDORsController.cs" />
     <Compile Include="Controllers\RUBROesController.cs" />
@@ -341,6 +343,9 @@
     <Compile Include="ORDEN_COMPRA.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORDEN_PEDIDO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PRODUCTO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -349,6 +354,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="RECEPCION_PRODUCTO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="RUBRO.cs">
       <DependentUpon>Model.tt</DependentUpon>

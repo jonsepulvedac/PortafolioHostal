@@ -17,17 +17,15 @@ namespace HostalSraRosaWebApi
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HABITACION()
         {
-            this.DETALLE_COMPRA = new HashSet<DETALLE_COMPRA>();
+            this.DETALLE_FACTURA = new HashSet<DETALLE_FACTURA>();
         }
     
         public decimal HABITACION_NRO { get; set; }
         public decimal HABITACION_DISPONIBLE { get; set; }
-        public decimal DETALLE_FACTURA_ID { get; set; }
         public decimal TIPO_HABITACION_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_COMPRA> DETALLE_COMPRA { get; set; }
-        public virtual DETALLE_FACTURA DETALLE_FACTURA { get; set; }
+        public virtual ICollection<DETALLE_FACTURA> DETALLE_FACTURA { get; set; }
         public virtual TIPO_HABITACION TIPO_HABITACION { get; set; }
     }
 }
