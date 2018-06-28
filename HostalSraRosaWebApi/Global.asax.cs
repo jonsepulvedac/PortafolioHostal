@@ -16,22 +16,28 @@ namespace HostalSraRosaWebApi
     {
         protected void Application_Start()
         {
-            HttpConfiguration config = GlobalConfiguration.Configuration;
-            config.Formatters.JsonFormatter
-            .SerializerSettings
-            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;  
+            //HttpConfiguration config = GlobalConfiguration.Configuration;
+            //config.Formatters.JsonFormatter
+            //.SerializerSettings
+            //.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            //Probando seguridad jwt
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            //prueba para corregir error ms_attributeroutewebapi
+            //GlobalConfiguration.Configuration.EnsureInitialized(); BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //Return JSON format
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(
-            new QueryStringMapping("type", "json", new MediaTypeHeaderValue("application/json")));
+            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(
+            //new QueryStringMapping("type", "json", new MediaTypeHeaderValue("application/json")));
 
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+            //AreaRegistration.RegisterAllAreas();
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
         }
     }
 }
